@@ -1,0 +1,28 @@
+  .wrapper {
+    margin-top: 50px;
+  }
+  .alert {
+    margin-top: 20px;
+  }
+  .form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    
+  }
+  .form-container h2 {
+    margin-bottom: 20px;
+   
+  }
+  .form-container .form-label {
+    font-weight: bold;
+  }
+  .form-container .form-control {
+    margin-bottom: 15px;
+  }
+  .form-container button {
+    width: 100%;
+  }

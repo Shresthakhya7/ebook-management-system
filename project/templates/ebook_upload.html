@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Upload Ebook{% endblock title %}
+
+{% block content %}
+{% load static %}
+    <link href="{% static 'styles2.css' %}" rel="stylesheet">
+<div class="container wrapper">
+  {% if messages %}
+    {% for msg in messages %}
+      {% if msg %}
+        <div class="alert alert-{{msg.tags}} alert-dismissible fade show font-weight-bold text-primary w-50 ml-3 mt-5">
+          {{msg}} 
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  <div class="form-container">
+    <form method="post" action="{% url 'ebook_upload' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Upload Ebook</h2>
+        <hr>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input name="title" required type="text" class="form-control" id="title">
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input name="author" required type="text" class="form-control" id="author">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" required class="form-control" id="description" style="resize: none;"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <select name="category" required class="form-control" id="category">
+              <option value="Fiction">Fiction</option>
+              <option value="Non-Fiction">Non-Fiction</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Biography">Biography</option>
+              <option value="Self Help">Self Help</option>
+          </select>
+      </div>
+        <div class="mb-3">
+            <label for="cover" class="form-label">Book Image</label>
+            <input name="cover" required type="file" accept="image/*" class="form-control" id="cover">
+        </div>
+        <div class="mb-3">
+            <label for="file" class="form-label">File</label>
+            <input name="file" required type="file" accept=".pdf,.doc,.docx,.txt" class="form-control" id="file">
+        </div>
+        <button type="submit" class="btn btn-success">Add Ebook</button>
+    </form>
+  </div>    
+</div>
+{% endblock content %}

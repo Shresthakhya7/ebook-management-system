@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Ebook Details{% endblock title %}
+
+{% block content %}
+
+{% load static %}
+    <link href="{% static 'books/styles.css' %}" rel="stylesheet">
+<div class="card-container">
+    <div class="card-header">
+        <h1>{{ ebook.title }}</h1>
+    </div>
+    <div class="card-body">
+        
+        <p class="card-text"><strong>Author:</strong> {{ ebook.author }}</p>
+        {% if ebook.cover %}
+            <img src="{{ ebook.cover.url }}" alt="Cover Image">
+        {% endif %}
+        <p class="card-text">{{ ebook.description }}</p>
+        <p class="card-text">{{ebook.category}}</p>
+        <a href="{% url 'ebook_detail' ebook.pk %}" class="btn btn-primary">Read</a>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back to list</a>
+    </div>
+</div>
+
+{%endblock content%}

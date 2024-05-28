@@ -1,0 +1,29 @@
+.card-container {
+    width: 500px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.card-body .btn {
+    margin-right: 10px;
+}

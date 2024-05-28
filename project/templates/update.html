@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Update Ebook{% endblock title %}
+
+{% block content %}
+{% load static %}
+    <link href="{% static 'styles2.css' %}" rel="stylesheet">
+
+<div class="form-container">
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>Update Ebook</h2>
+    <hr>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" value="{{ ebook.title }}">
+    </div>
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input required type="text" class="form-control" id="author" name="author" value="{{ ebook.author }}">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" name="description" style="resize: none;" required>{{ ebook.description }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label for="cover" class="form-label">Cover</label>
+      <input type="file" class="form-control" id="cover" name="cover" value="{{ebook.cover}}" accept="image/*" >
+      
+    </div>
+    <div class="mb-3">
+      <label for="file" class="form-label">File</label>
+      <input type="file" class="form-control" id="file" name="file" value="{{ebook.file}}" accept=".pdf,.doc,.docx,.txt" >
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock content %}
